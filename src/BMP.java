@@ -12,10 +12,12 @@ public class BMP extends Image {
     @Override
     public long getSize() {
         long size = 0;
-        while(Math.min(width,height) > 128){
-            size += width * height;
-            width *= 0.5;
-            height *= 0.5;
+        int tempWidth = getWidth();
+        int tempHeight = getHeight();
+        while(Math.min(tempWidth,tempHeight) > 128){
+            size += tempWidth * tempHeight;
+            tempHeight *= 0.5;
+            tempWidth *= 0.5;
         }
         return size;
     }

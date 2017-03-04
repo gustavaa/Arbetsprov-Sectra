@@ -1,28 +1,23 @@
+import java.util.ArrayList;
 import java.util.Stack;
 
-/**
- * Created by gustavaaro on 2017-03-03.
- */
+
 public class ImageGroup {
 
-    private Stack<Image> images;
+    private ArrayList<Image> images;
 
-    ImageGroup(Image[] groupedImages){
-        images = new Stack<Image>();
-
-        for (Image image: groupedImages) {
-            this.images.push(image);
-        }
+    ImageGroup(ArrayList<Image> groupedImages){
+        images = groupedImages;
     }
 
     public long getGroupSize(){
         long totalStorageSize = 0;
-        int groupSize = images.size();
-        while (!images.empty()){
-            totalStorageSize += images.pop().getSize();
+
+        for(Image image : images) {
+            totalStorageSize += image.getSize();
         }
 
-        return Math.round(totalStorageSize/Math.log(groupSize + 3));
+        return Math.round(totalStorageSize/Math.log(images.size() + 3));
     }
 
 }

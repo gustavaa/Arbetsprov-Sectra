@@ -11,6 +11,6 @@ public class JP2 extends Image {
 
     @Override
     public long getSize() {
-        return Math.round(width * height * 0.4 /Math.log(Math.log(width * height + 16)));
+        return Math.round((getWidth() * getHeight() * 0.4) /Math.log(Math.log(getWidth() * getHeight() + 16)));
     }
 }
