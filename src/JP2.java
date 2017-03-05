@@ -9,8 +9,13 @@ public class JP2 extends Image {
     }
 
 
+    /**
+     * Calculates the JPEG 2000 image size.
+     *
+     * @return the size of the JPEG 2000 file.
+     */
     @Override
     public long getSize() {
-        return Math.round((getWidth() * getHeight() * 0.4) /Math.log(Math.log(getWidth() * getHeight() + 16)));
+        return(long) Math.floor((getWidth() * getHeight() * 0.4) /Math.log(Math.log(getWidth() * getHeight() + 16)));
     }
 }

@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.Stack;
-
 
 public class ImageGroup {
 
@@ -10,6 +8,11 @@ public class ImageGroup {
         images = groupedImages;
     }
 
+    /**
+     * Calculates the total size of the image group.
+     *
+     * @return the size of the image group.
+     */
     public long getGroupSize(){
         long totalStorageSize = 0;
 
@@ -17,7 +20,7 @@ public class ImageGroup {
             totalStorageSize += image.getSize();
         }
 
-        return Math.round(totalStorageSize/Math.log(images.size() + 3));
+        return (long) Math.floor(totalStorageSize/Math.log(images.size() + 3));
     }
 
 }
