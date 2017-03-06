@@ -13,7 +13,7 @@ public class ImageStorageEstimator {
 
     /**
      * The ImageStorageEstimator is a tool for estimating the total storage size for
-     * images specified by the user. The program can also account for stacks of
+     * images specified by the user. The program can also take account for stacks of
      * images, which will allow for more aggressive compression.
      *
      * @author  Gustav Aaro
@@ -107,7 +107,9 @@ public class ImageStorageEstimator {
      */
     private static void validateInputValues(String[] args) throws InvalidInputException{
         try {
-            if(args.length < 3) throw new IndexOutOfBoundsException();
+            
+            if(args.length < 3) throw new IndexOutOfBoundsException(); //Input must be at least 3 arguments, caught underneath
+            
             for(int i = 1; i<args.length; ++i) {
                 int temp = Integer.parseInt(args[i]);
                 if(temp < 0) throw new NumberFormatException();
@@ -115,7 +117,7 @@ public class ImageStorageEstimator {
         } catch (NumberFormatException e){
             throw new InvalidInputException("Invalid input. All values following the first argument must be positive integers.");
         } catch (IndexOutOfBoundsException e1){
-            throw new InvalidInputException("Invalid input. Input need to have format \"type width height\" or \"g i1 i2 ... in\"");
+            throw new InvalidInputException("Invalid input. Input must have format \"type width height\" or \"g i1 i2 ... in\"");
         }
 
     }
