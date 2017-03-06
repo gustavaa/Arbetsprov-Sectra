@@ -12,7 +12,7 @@ public class ImageStorageEstimator {
 
 
     /**
-     * The ImageStorageEstimator is tool for estimating the total storage size for
+     * The ImageStorageEstimator is a tool for estimating the total storage size for
      * images specified by the user. The program can also account for stacks of
      * images, which will allow for more aggressive compression.
      *
@@ -70,7 +70,7 @@ public class ImageStorageEstimator {
             return totalSize;
 
         } catch (IOException e) {
-            //For other exceptions not directly related to user input, print stacktrace and exit program.
+            //Should never happen, but for other exceptions not directly related to user input, print stacktrace and exit program.
             e.printStackTrace();
             System.exit(0);
         }
